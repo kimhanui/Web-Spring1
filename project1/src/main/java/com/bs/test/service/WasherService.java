@@ -1,11 +1,16 @@
 package com.bs.test.service;
 
 import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
 
-import com.bs.test.Member;
-import com.bs.test.Washer;
-import com.bs.test.WasherStatus;
+import org.springframework.stereotype.Service;
 
+import com.bs.test.domain.Member;
+import com.bs.test.domain.Washer;
+import com.bs.test.domain.WasherStatus;
+
+@Service
+@Transactional
 public class WasherService implements IWasherService {
 	@Override
 	public void washerRegister(EntityManager em, Long id, WasherStatus washerstatus) {

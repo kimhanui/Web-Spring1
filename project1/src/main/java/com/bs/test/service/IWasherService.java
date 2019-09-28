@@ -2,9 +2,9 @@ package com.bs.test.service;
 
 import javax.persistence.EntityManager;
 
-import com.bs.test.Member;
-import com.bs.test.Washer;
-import com.bs.test.WasherStatus;
+import com.bs.test.domain.Member;
+import com.bs.test.domain.Washer;
+import com.bs.test.domain.WasherStatus;
 
 public interface IWasherService {
 	void washerRegister(EntityManager em, Long id, WasherStatus washerstatus);

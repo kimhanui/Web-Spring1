@@ -12,6 +12,7 @@
 <p>
 	<a href ="/test/resources/html/join.html">Join</a><br>
 	<a href ="/test/resources/html/login.html">Login</a><br>
+	<a href ="/test/resources/html/memberList.html">Find Member</a><br>
 <P>  The time on the server is ${serverTime}. </P>
 </body>
 </html>
