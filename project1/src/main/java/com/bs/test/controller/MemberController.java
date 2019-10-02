@@ -46,7 +46,7 @@ public class MemberController {
 		return "loginOk";
 	}
 
-	@RequestMapping(value = "/findAll", method = RequestMethod.GET)
+	@RequestMapping(value = "/findAll" , method=RequestMethod.GET)
 	public String findAll(Model model) {
 		List<Member> members = service.searchMembers();
 		if (members == null) {
@@ -56,6 +56,7 @@ public class MemberController {
 		return "findMembers";
 
 	}
+	
 	// Cash
 
 }
