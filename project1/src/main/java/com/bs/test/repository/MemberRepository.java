@@ -1,17 +1,35 @@
 package com.bs.test.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import org.springframework.stereotype.Repository;
 
 import com.bs.test.domain.Member;
 
+@Repository
+public class MemberRepository {
+	@PersistenceContext
+	EntityManager em;
 
-public interface MemberRepository extends JpaRepository<Member, String> {
-	Member findByName(String name);
+	public void save(Member m) {
+		System.out.println("member:"+m.toString());
+		em.persist(m);
+	}
 
-	Member findById(String id);
-//	save() 레코드 저장 (insert, update)
-//	findOne() primary key로 레코드 한건 찾기
-//	findAll() 전체 레코드 불러오기. 정렬(sort), 페이징(pageable) 가능
-//	count()	 레코드 갯수
-//	delete()	 레코드 삭제
+	public Member findById(String id) {
+		Member m = em.find(Member.class, id);
+		return m;
+	}
+
+	public void delete(String id) {
+		Member m = em.find(Member.class, id);
+		em.remove(m);
+	}
+
+	public List<Member> findAll() {
+		return em.createQuery("select m from Member m", Member.class).getResultList();
+	}
 }
